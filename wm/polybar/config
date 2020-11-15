@@ -1,0 +1,49 @@
+[bar/topbar]
+modules-right =  battery wired-network wireless-network date 
+modules-center = spotify
+modules-left = ewmh
+seperator = |
+
+[module/battery]
+type = internal/battery
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+poll-interval = 5
+format-charging = animation-charging
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python /usr/share/polybar/scripts/spotify_status.py -f '{artist}: {song}'
+format-underline = #1db954
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d%
+time = %H:%M
+format = 🕓 <label>
+label = %date% %time%
+
+[module/wired-network]
+type = internal/network
+interface = enp60s0
+
+[module/wireless-network]
+type = internal/network
+interface = wlp0s20f3
+
+
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/.config/polybar/scripts/arch-updates.sh
+interval = 600
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = true
