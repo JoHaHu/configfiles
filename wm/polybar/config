@@ -1,20 +1,3 @@
-[bar/topbar]
-modules-right =  battery wired-network wireless-network date 
-modules-center = spotify
-modules-left = ewmh
-seperator = |
-
-[module/battery]
-type = internal/battery
-full-at = 99
-
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
-battery = BAT0
-adapter = ADP1
-poll-interval = 5
-format-charging = animation-charging
-
 [module/spotify]
 type = custom/script
 interval = 1
@@ -30,20 +13,16 @@ time = %H:%M
 format = 🕓 <label>
 label = %date% %time%
 
-[module/wired-network]
-type = internal/network
-interface = enp60s0
-
-[module/wireless-network]
-type = internal/network
-interface = wlp0s20f3
-
-
-[module/updates-arch-combined]
-type = custom/script
-exec = ~/.config/polybar/scripts/arch-updates.sh
-interval = 600
-
 [module/ewmh]
 type = internal/xworkspaces
 pin-workspaces = true
+
+[module/info-wifionice]
+type = custom/script
+exec = ~/polybar-scripts/info-wifionice.sh
+interval = 10
+
+[module/info-docker]
+type = custom/script
+exec = ~/polybar-scripts/info-docker.sh
+interval = 60
