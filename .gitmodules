@@ -1,0 +1,3 @@
+[submodule "wm/polybar/polybar-scripts"]
+	path = wm/polybar/polybar-scripts
+	url = git@github.com:polybar/polybar-scripts.git
