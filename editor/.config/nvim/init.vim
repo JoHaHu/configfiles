@@ -1,4 +1,3 @@
-" Fish doesn't play all that well with others
 set shell=/bin/bash
 let mapleader = "\<Space>"
 
@@ -101,7 +100,8 @@ set autoindent
 set timeoutlen=300
 set encoding=utf-8
 set scrolloff=10
-
+set ttyfast
+set lazyredraw
 set noshowmode
 set hidden
 set nowrap
@@ -118,6 +118,12 @@ set splitbelow
 set vb t_vb= " No more beeps
 set relativenumber " Relative line numbers
 set number " Also show current absolute line
+
+
+" Very magic by default
+nnoremap ? ?\v
+nnoremap / /\v
+cnoremap %s/ %sm/
 
 " Ctrl+j and Ctrl+k as Esc
 " Ctrl-j is a little awkward unfortunately:
