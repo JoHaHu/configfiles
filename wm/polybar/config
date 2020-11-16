@@ -1,28 +1,104 @@
+[bar/mainbar]
+bottom=true
+modules-right = info-docker  info-wifionice date battery 
+modules-center = window spotify
+modules-left= ewmh  
+line-size= 2
+module-margin= 1
+tray-position= right
+tray-padding =1
+font-0= "FiraMono Nerd Font Mono;"
+heigth = 20%
+
+[global/wm]
+margin-top=50
+
+[module/battery]
+type = internal/battery
+poll-interval = 5
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+animation-charging-5 = ""
+animation-charging-6 = ""
+animation-charging-framerate = 750
+ramp-capacity-0 = "%{F#ff0c0c}%{F-}"
+ramp-capacity-0-underline = #ff0c0c
+ramp-capacity-1 = "%{F#ff0c0c}%{F-}"
+ramp-capacity-1-underline = #ff0c0c
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+ramp-capacity-5 = ""
+ramp-capacity-6 = ""
+ramp-capacity-7 = ""
+ramp-capacity-8 = ""
+ramp-capacity-9 = ""
+ramp-capacity-10 = ""
+
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+format-prefix = " "
 format = <label>
 exec = python /usr/share/polybar/scripts/spotify_status.py -f '{artist}: {song}'
 format-underline = #1db954
 
 [module/date]
 type = internal/date
-date = %Y-%m-%d%
+date = %d-%m%
 time = %H:%M
-format = 🕓 <label>
+format =  <label>
 label = %date% %time%
+format-underline = #ffffff
 
 [module/ewmh]
-type = internal/xworkspaces
+type = internal/i3
 pin-workspaces = true
+ws-icon-0 = 1: firefox;
+ws-icon-1 = 2: code;
+ws-icon-2 = 3: terminal;
+ws-icon-3 = 5: Tor;﨩
+ws-icon-default =  
+
+
+strip-wsnumbers = true
+format = <label-state> <label-mode>
+label-mode = %mode%
+label-mode-padding = 2
+
+label-focused = %icon% %name%
+label-focused-underline = #0c0cff
+
+label-unfocused = %icon% %name% 
+label-unfocused-underline = #808080 
+label-visible = %icon%
+label-urgent = %icon%
+
+label-separator = |
+label-separator-padding = 2
+label-separator-foreground = #ffffff
+label-seperator-underline = #808080
+
+[module/window]
+type = internal/xwindow
+format-underline = #0db7ed
+format = <label>
+label = %title%
+label-maxlen = 25
+
 
 [module/info-wifionice]
 type = custom/script
-exec = ~/polybar-scripts/info-wifionice.sh
+exec = /usr/share/polybar/scripts/info-wifionice.sh
 interval = 10
 
 [module/info-docker]
 type = custom/script
-exec = ~/polybar-scripts/info-docker.sh
+exec = /usr/share/polybar/scripts/info-docker.sh
 interval = 60
+format-underline = #0db7ed

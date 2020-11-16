@@ -1,0 +1,8 @@
+#!/bin/sh
+i3-msg "[class=firefox] fullscreen enable"
+sleep 0.1
+i3-msg "[class=firefox] fullscreen disable"
+
+
+
+
