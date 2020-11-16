@@ -71,7 +71,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "0: discord"
 
 workspace $ws1 output eDP-1
 workspace $ws2 output eDP-1
@@ -110,7 +110,6 @@ bindsym $mod+Ctrl+Shift+Left move workspace to output left
 
 bindsym $mod+e exec nautilus
 bindsym $mod+space exec --no-startup-id rofi -show drun
-bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym mod1+ctrl+i exec firefox
 bindsym $mod+l exec i3lock-fancy
 bindsym $mod+Shift+Return exec --no-startup-id "i3-input -F '%s' -P 'Enter i3-msg: '"
@@ -132,12 +131,11 @@ assign [class="code-oss"] $ws3
 assign [class="firefox"] $ws1
 assign [class="Tor Browser"] $ws4
 assign [class="Gnome-terminal"] $ws3
+assign [class="Alacritty"] $ws3
+assign [class="discord"] $ws10
 
 for_window [class="Spotify"] move scratchpad, sticky enable;
-for_window [class="plasmawindowed" title="Notes"] move scratchpad
-for_window [class="plasmashell"] floating enable
 for_window [title="Desktop"] kill; floating enable; border none
-for_window [class="discord"] move scratchpad, sticky enable;
 
 #Fix restore behaviour of firefox
 #for_window [class="firefox"] exec --no-startup-id ~/.config/i3/scripts/firefox-fix;
@@ -166,7 +164,6 @@ exec --no-startup-id blueman-applet
 bindsym $mod+s [class="Spotify"] scratchpad show
 bindsym $mod+t [class="Gnome-terminal" ] scratchpad show
 bindsym $mod+n [con_mark="PIP"] scratchpad show
-bindsym $mod+a [class="discord"] scratchpad show
 
 
 bindsym $mod+Shift+s move scratchpad
@@ -180,9 +177,9 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl set +5% # increase screen brightness
