@@ -1,17 +1,21 @@
 [bar/mainbar]
 bottom=true
-modules-right = info-docker  info-wifionice date battery 
+modules-right = info-wifionice date battery 
 modules-center = window spotify
 modules-left= ewmh  
 line-size= 2
 module-margin= 1
 tray-position= right
 tray-padding =1
-font-0= "FiraMono Nerd Font Mono;"
-heigth = 20%
+tray-maxsize=24
+font-0= "FiraMono Nerd Font Mono"
+height=32
+dock=false
+padding-left = 1
 
 [global/wm]
 margin-top=50
+margin-bottom=50
 
 [module/battery]
 type = internal/battery
@@ -62,7 +66,7 @@ pin-workspaces = true
 ws-icon-0 = 1: firefox;
 ws-icon-1 = 2: code;
 ws-icon-2 = 3: terminal;
-ws-icon-3 = 5: Tor;﨩
+ws-icon-3 = 5: tor;﨩
 ws-icon-default =  
 
 
@@ -75,13 +79,13 @@ label-focused = %icon% %name%
 label-focused-underline = #0c0cff
 
 label-unfocused = %icon% %name% 
-label-unfocused-underline = #808080 
+label-unfocused-underline = #808080
 label-visible = %icon%
 label-urgent = %icon%
 
 label-separator = |
 label-separator-padding = 2
-label-separator-foreground = #ffffff
+label-separator-foreground = #fffffff
 label-seperator-underline = #808080
 
 [module/window]
@@ -96,9 +100,3 @@ label-maxlen = 25
 type = custom/script
 exec = /usr/share/polybar/scripts/info-wifionice.sh
 interval = 10
-
-[module/info-docker]
-type = custom/script
-exec = /usr/share/polybar/scripts/info-docker.sh
-interval = 60
-format-underline = #0db7ed
