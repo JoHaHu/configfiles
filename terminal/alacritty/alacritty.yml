@@ -5,3 +5,6 @@ shell:
     - -A
     - -s
     - main
+font:
+  normal:
+    family: Fura Mono Nerd Font Mono
