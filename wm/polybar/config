@@ -79,7 +79,7 @@ icon-0 = 0: discord;%{F#7289da}ﭮ%{F-}
 icon-1 = 1: firefox;%{F#FF6611}%{F-} 
 icon-2 = 2: code;
 icon-3 = 3: terminal;
-icon-4 = 5: tor;%{F#7600a9}﨩%{F-}
+icon-4 = 4: tor;%{F#7600a9}﨩%{F-}
 icon-default =  
 
 ;   
