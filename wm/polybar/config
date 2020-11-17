@@ -1,21 +1,30 @@
+[colors]
+spotify=${xrdb:}
+discord=${xrdb:discord}
+firefox=${xrdb:}
+tor=${xrdb:}
+white=${xrdb:white}
+grey=${xrdb:black}
+background = #808080
+
+
+[global/wm]
+margin-top = 1
+
 [bar/mainbar]
 bottom=true
 modules-right = info-wifionice date battery 
-modules-center = window spotify 
+modules-center = spotify 
 modules-left= ewmh  
-line-size= 2
-module-margin= 1
+line-size= 3
 tray-position= right
 tray-padding =1
 tray-maxsize=16
-font-0= "FiraMono Nerd Font Mono"
-height=28
+font-0= "FuraCode Nerd Font;size=20"
+height=19
 dock=false
 padding-left = 1
-
-[global/wm]
-margin-top=50
-margin-bottom=50
+padding-right = 1
 
 [module/battery]
 type = internal/battery
@@ -47,7 +56,7 @@ ramp-capacity-10 = ""
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+format-prefix = "%{F#1db954}%{F-} "
 format = <label>
 exec = python /usr/share/polybar/scripts/spotify_status.py -f '{song}'
 format-underline = #1db954
@@ -62,32 +71,29 @@ label = %date% %time%
 format-underline = #ffffff
 
 [module/ewmh]
-type = internal/i3
+type = internal/xworkspaces
 pin-workspaces = true
-ws-icon-0 = 0: discord;ﭮ
-ws-icon-1 = 1: firefox;
-ws-icon-2 = 2: code;
-ws-icon-3 = 3: terminal;
-ws-icon-4 = 5: tor;﨩
-ws-icon-default =  
 
-strip-wsnumbers = true
-format = <label-state> <label-mode>
-label-mode = %mode%
-label-mode-padding = 2
 
-label-focused = %icon% %name%
-label-focused-underline = #0c0cff
+icon-0 = 0: discord;%{F#7289da}ﭮ%{F-}
+icon-1 = 1: firefox;%{F#FF6611}%{F-} 
+icon-2 = 2: code;
+icon-3 = 3: terminal;
+icon-4 = 5: tor;%{F#7600a9}﨩%{F-}
+icon-default =  
 
-label-unfocused = %icon% %name% 
-label-unfocused-underline = #808080
-label-visible = %icon%
+;   
+
+format = <label-state> 
+label-active =  %{B#000 F#333}%{u#924}%{F- B#333} %icon% %{B#000 F#333 -u}%{F- B-}
+
+label-occupied = %icon%
+
 label-urgent = %icon%
 
-label-separator = |
-label-separator-padding = 2
-label-separator-foreground = #fffffff
-label-seperator-underline = #808080
+label-empty = %{F#000}%{F-}%icon%%{F#000}%{F-}
+label-empty-padding = 1
+label-empty-underline = #000
 
 
 [module/window]
@@ -96,9 +102,6 @@ format-underline = #0db7ed
 format = <label>
 label = %title%
 label-maxlen = 25
-
-
-
 
 
 [module/info-wifionice]
