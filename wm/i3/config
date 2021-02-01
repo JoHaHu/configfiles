@@ -128,7 +128,7 @@ assign [class="jetbrains-idea"] $ws2
 assign [class="jetbrains-clion"] $ws2
 assign [class="jetbrains-webstorm"] $ws2
 assign [class="jetbrains-pycharm"] $ws2
-assign [class="code-oss"] $ws3
+assign [class="Code"] $ws2
 assign [class="firefox"] $ws1
 assign [class="Tor Browser"] $ws4
 assign [class="Gnome-terminal"] $ws3
@@ -161,6 +161,7 @@ exec --no-startup-id gnome-settings-daemon
 exec_always --no-startup-id setxkbmap -variant euro -option compose:rctrl
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 bindsym $mod+s [class="Spotify"] scratchpad show
 bindsym $mod+t [class="Gnome-terminal" ] scratchpad show

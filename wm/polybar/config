@@ -13,7 +13,7 @@ margin-top = 1
 
 [bar/mainbar]
 bottom=true
-modules-right = info-wifionice date battery 
+modules-right = info-wifionice date battery pulseaudio
 modules-center = spotify 
 modules-left= ewmh  
 line-size= 3
@@ -22,7 +22,7 @@ tray-padding =1
 tray-maxsize=16
 font-0= "FuraCode Nerd Font;size=20"
 height=19
-dock=false
+override-redirect= false
 padding-left = 1
 padding-right = 1
 
@@ -82,16 +82,13 @@ icon-3 = 3: terminal;
 icon-4 = 4: tor;%{F#7600a9}﨩%{F-}
 icon-default =  
 
-;   
-
 format = <label-state> 
-label-active =  %{B#000 F#333}%{u#924}%{F- B#333} %icon% %{B#000 F#333 -u}%{F- B-}
-
+label-active =  %{u#000}%icon%
 label-occupied = %icon%
 
 label-urgent = %icon%
 
-label-empty = %{F#000}%{F-}%icon%%{F#000}%{F-}
+label-empty = %icon%
 label-empty-padding = 1
 label-empty-underline = #000
 
@@ -108,3 +105,12 @@ label-maxlen = 25
 type = custom/script
 exec = /usr/share/polybar/scripts/info-wifionice.sh
 interval = 10
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = true
+format-volume = <ramp-volume>  <label-volume>
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 
+label-muted = 🔇 muted
